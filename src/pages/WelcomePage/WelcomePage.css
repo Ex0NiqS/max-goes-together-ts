@@ -1,0 +1,139 @@
+.welcome-page {
+  
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  background: #e4e4e4;
+}
+
+.welcome-content {
+  position: relative;
+
+  width: 375px;
+  height: 824px;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.welcome-title {
+  position: absolute;
+
+  left: 3px;
+  top: 106px;
+
+  width: 370px;
+  height: 38px;
+
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  
+  font-size: 32px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0;
+
+  color: #ffffff;
+  text-align: center;
+}
+
+.welcome-title-background {
+  position: absolute;
+
+  left: 14px;
+  top: 106px;
+
+  width: 348px;
+  height: 41px;
+
+  background: #FC408C;
+}
+
+.welcome-description {
+  position: absolute;
+
+  left: 97px;
+  top: 155px;
+
+  width: 189px;
+  height: 60px;
+
+  margin: 0;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0;
+
+  text-align: center;
+  color: #3B3F42;
+  opacity: 0.71;
+}
+
+.logo {
+ position: absolute;
+  left: 3px;
+  top: 233px;
+  
+  width: 371px;
+  height: 357px;
+}
+
+.welcome-button {
+  position: relative;
+
+  width: calc(100% - 44px);
+  height: 46px;
+
+  left: 22px;
+  top: 701px;
+  
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #2351FE;
+  color: #fff;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 130%;
+
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 4px 4px 0 #FC5B9C;
+}
+
+.welcome-button span:last-child {
+  position: absolute;
+  right: 14px;
+
+  font-size: 20px;
+  line-height: 1;
+}
+
+.welcome-hint {
+  position: absolute;
+
+  width: calc(100% - 44px);
+  height: 46px;
+  left: 22px;
+  top: 763px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  text-align: center;
+  color: #7C7C7B;
+
+}
