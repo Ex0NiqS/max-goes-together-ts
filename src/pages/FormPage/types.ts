@@ -3,5 +3,4 @@ export type SurveyAnswers = {
   from?: string
   interests?: string[]
   genres?: string[]
-
 }

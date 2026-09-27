@@ -1,7 +1,11 @@
 import './WelcomePage.css'
 import logo from '../../assets/logo.png'
 
-const WelcomePage = () => {
+type WelcomePageProps = {
+  onStart: () => void
+}
+
+const WelcomePage = ({ onStart }: WelcomePageProps) => {
   return (
     <div className="welcome-page">
       <div className="welcome-content">
@@ -17,7 +21,7 @@ const WelcomePage = () => {
 
         <img className="logo" src={logo} alt="" />
 
-        <button className="welcome-button">
+        <button className="welcome-button" onClick={onStart}>
           <span className="welcome-button-text">Начать</span>
           <span className="welcome-button-arrow">›</span>
         </button>
