@@ -1,24 +1,20 @@
 .welcome-page {
-  
-
   width: 100%;
-  height: 100%;
-
+  min-height: 100svh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
   background: #e4e4e4;
 }
 
 .welcome-content {
   position: relative;
 
-  width: 375px;
-  height: 824px;
-
+  width: min(100%, 375px);
+  min-height: max(812px, 100svh);
+  height: max(812px, 100svh);
+  box-sizing: border-box;
   background: #ffffff;
-
   overflow: hidden;
 }
 
@@ -88,14 +84,11 @@
 }
 
 .welcome-button {
-  position: relative;
-
+  position: absolute;
   width: calc(100% - 44px);
   height: 46px;
-
   left: 22px;
-  top: 701px;
-  
+  bottom: 74px;
 
   display: flex;
   align-items: center;
@@ -129,11 +122,30 @@
   width: calc(100% - 44px);
   height: 46px;
   left: 22px;
-  top: 763px;
+  bottom: 13px;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   line-height: 1.2;
   text-align: center;
   color: #7C7C7B;
 
+}
+
+@media (max-width: 375px) {
+  .welcome-title {
+    left: 8px;
+    width: calc(100% - 16px);
+    font-size: clamp(25px, 8vw, 32px);
+  }
+
+  .welcome-title-background {
+    left: 5%;
+    width: 90%;
+  }
+
+  .logo {
+    left: 2%;
+    width: 96%;
+    height: auto;
+  }
 }

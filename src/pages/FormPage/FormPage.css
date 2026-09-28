@@ -1,0 +1,402 @@
+.form-page {
+	--ink: #3c3d3b;
+	--muted: #7c7c7b;
+	--line: #ededed;
+	--blue: #2351fe;
+	--pink: #fc5b9c;
+
+	position: relative;
+	width: min(100%, 375px);
+	min-height: max(812px, 100svh);
+	margin: 0 auto;
+	overflow: hidden;
+	background: #fff;
+	color: var(--ink);
+	text-align: left;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.form-header {
+	position: relative;
+	z-index: 1;
+	height: 110px;
+	box-sizing: border-box;
+	border-bottom: 1px solid #d9dde2;
+	background: #fff;
+}
+
+.status-bar {
+	height: 24px;
+	padding: 2px 24px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	box-sizing: border-box;
+	color: var(--ink);
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.status-icons {
+	display: flex;
+	align-items: flex-end;
+	gap: 3px;
+	height: 12px;
+}
+
+.status-icons i {
+	display: block;
+	width: 3px;
+	border-radius: 2px 2px 0 0;
+	background: var(--ink);
+}
+
+.status-icons i:nth-child(1) { height: 5px; }
+.status-icons i:nth-child(2) { height: 8px; }
+.status-icons i:nth-child(3) { height: 11px; }
+
+.form-header h1 {
+	margin: 17px 16px 0;
+	color: #0e0e0e;
+	font-size: 24px;
+	font-weight: 700;
+	line-height: 1.2;
+	text-align: center;
+}
+
+.form-scroll-area {
+	display: flex;
+	min-height: 702px;
+	flex-direction: column;
+	padding: 0 20px 39px;
+	box-sizing: border-box;
+}
+
+.form-main {
+	width: 100%;
+}
+
+.step-intro {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.progress-row {
+	display: flex;
+	width: 100%;
+	height: 29px;
+	align-items: center;
+	gap: 12px;
+}
+
+.progress-track {
+	height: 6px;
+	flex: 1;
+	overflow: hidden;
+	border-radius: 4px;
+	background: var(--line);
+}
+
+.progress-track span {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: #fd418d;
+	transition: width 220ms ease;
+}
+
+.step-count {
+	width: 50px;
+	color: var(--ink);
+	font-size: 14px;
+	line-height: 17px;
+	text-align: right;
+}
+
+.step-intro h2 {
+	display: flex;
+	min-height: 62px;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	color: var(--ink);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.step-intro > p {
+	min-height: 34px;
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 1.2;
+}
+
+.step-content {
+	margin-top: 10px;
+}
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.field-label {
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 17px;
+}
+
+.text-input {
+	width: 100%;
+	height: 45px;
+	padding: 0 16px;
+	box-sizing: border-box;
+	appearance: none;
+	border: 1px solid var(--line);
+	border-radius: 12px;
+	outline: none;
+	background: #fbfbfb;
+	color: var(--ink);
+	font: 400 14px/1.2 'Montserrat', sans-serif;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.text-input::placeholder {
+	color: var(--muted);
+	opacity: 1;
+}
+
+.text-input:focus-visible {
+	border-color: var(--blue);
+	box-shadow: 0 0 0 3px rgb(35 81 254 / 12%);
+}
+
+.select-wrap {
+	position: relative;
+}
+
+.city-select {
+	padding-right: 42px;
+	cursor: pointer;
+}
+
+.city-select:invalid {
+	color: var(--muted);
+}
+
+.select-chevron {
+	position: absolute;
+	top: 16px;
+	right: 18px;
+	width: 9px;
+	height: 9px;
+	transform: rotate(45deg);
+	border-right: 2px solid #b2b2b2;
+	border-bottom: 2px solid #b2b2b2;
+	pointer-events: none;
+}
+
+.event-field > .field-label {
+	color: var(--ink);
+}
+
+.field-hint {
+	margin: -2px 0 4px;
+	color: var(--muted);
+	font-size: 12px;
+	line-height: 1.4;
+}
+
+.choice-list {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 12px 10px;
+}
+
+.choice-chip {
+	display: inline-flex;
+	min-height: 36px;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 8px 14px;
+	border: 1px solid #7c7c7b;
+	border-radius: 3px;
+	background: #fbfbfb;
+	color: #7c7c7b;
+	font: 400 13px/1.2 'Montserrat', sans-serif;
+	cursor: pointer;
+	transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.choice-chip:hover {
+	border-color: var(--blue);
+	color: var(--blue);
+}
+
+.choice-chip.is-selected {
+	border-color: var(--blue);
+	background: var(--blue);
+	box-shadow: 4px 4px 0 var(--pink);
+	color: #fff;
+	font-weight: 700;
+}
+
+.choice-chip:focus-visible,
+.primary-button:focus-visible,
+.secondary-button:focus-visible {
+	outline: 3px solid rgb(35 81 254 / 35%);
+	outline-offset: 3px;
+}
+
+.chip-remove {
+	font-size: 17px;
+	font-weight: 400;
+	line-height: 12px;
+}
+
+.genre-groups {
+	display: flex;
+	flex-direction: column;
+	gap: 28px;
+}
+
+.genre-group {
+	min-width: 0;
+}
+
+.genre-title {
+	margin: 0 0 14px -4px;
+	color: #0e0e0e;
+	font-size: 38px;
+	font-weight: 700;
+	line-height: 1.15;
+}
+
+.genre-choice-list {
+	gap: 12px 10px;
+}
+
+.genre-chip {
+	min-height: 30px;
+	padding: 6px 10px;
+	font-size: 11px;
+}
+
+.form-error {
+	min-height: 18px;
+	margin-top: 10px;
+	color: #c51d5b;
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.form-footer {
+	position: relative;
+	display: flex;
+	width: 100%;
+	gap: 10px;
+	margin-top: auto;
+	padding-top: 12px;
+}
+
+.primary-button,
+.secondary-button {
+	display: inline-flex;
+	min-width: 0;
+	height: 46px;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	padding: 0 14px;
+	border: 1px solid var(--blue);
+	border-radius: 0;
+	background: var(--blue);
+	color: #fff;
+	font: 600 16px/1.2 'Montserrat', sans-serif;
+	cursor: pointer;
+}
+
+.primary-button {
+	box-shadow: 4px 4px 0 var(--pink);
+}
+
+.secondary-button {
+	background: #fff;
+	color: var(--blue);
+}
+
+.first-step-footer .primary-button {
+	flex-basis: 100%;
+}
+
+.footer-logo {
+	position: absolute;
+	top: -35px;
+	right: -2px;
+	width: 45px;
+	height: 47px;
+	object-fit: contain;
+	pointer-events: none;
+}
+
+.form-page-complete {
+	display: grid;
+	min-height: 100svh;
+	place-items: center;
+	padding: 28px 20px;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.completion-content {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+}
+
+.completion-logo {
+	width: 112px;
+	height: 108px;
+	object-fit: contain;
+	margin-bottom: 24px;
+}
+
+.completion-eyebrow {
+	margin: 0 0 8px;
+	color: #fd418d;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.completion-content h1 {
+	margin: 0;
+	color: #0e0e0e;
+	font-size: 28px;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+.completion-copy {
+	margin: 14px 0 28px;
+	color: var(--muted);
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.completion-button {
+	width: 100%;
+	flex: initial;
+}
+
+@media (max-height: 700px) {
+	.form-scroll-area {
+		min-height: 702px;
+	}
+}
