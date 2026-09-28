@@ -5,6 +5,7 @@ import Step2From from './steps/Step2From'
 import Step3Events from './steps/Step3Events'
 import Step4Genres from './steps/Step4Genres'
 import type { SurveyAnswers } from './types'
+import { getAvailableGenreGroupsForInterests } from './steps/Step4Genres'
 import './FormPage.css'
 
 const stepCopy = [
@@ -29,16 +30,32 @@ const FormPage = ({ onBackToWelcome }: FormPageProps) => {
 		key: Key,
 		value: NonNullable<SurveyAnswers[Key]>,
 	) => {
-		setAnswers((current) => ({ ...current, [key]: value }))
+		setAnswers((current) => {
+			if (key === 'interests') {
+				const availableGenres = getAvailableGenreGroupsForInterests(value as string[])
+				const validGenres = new Set(availableGenres.flatMap(({ options }) => options))
+				return {
+					...current,
+					interests: value as string[],
+					genres: (current.genres ?? []).filter((genre) => validGenres.has(genre)),
+				}
+			}
+
+			return { ...current, [key]: value }
+		})
 		setError('')
 	}
 
 	const moveForward = () => {
+		const availableGenres = getAvailableGenreGroupsForInterests(answers.interests ?? [])
+		const validGenreSet = new Set(availableGenres.flatMap(({ options }) => options))
+		const selectedGenres = (answers.genres ?? []).filter((genre) => validGenreSet.has(genre))
+
 		const isStepValid = [
 			Boolean(answers.name?.trim()),
 			Boolean(answers.from),
 			Boolean(answers.interests?.length),
-			Boolean(answers.genres?.length),
+			Boolean(selectedGenres.length),
 		][step]
 
 		if (!isStepValid) {
@@ -51,6 +68,7 @@ const FormPage = ({ onBackToWelcome }: FormPageProps) => {
 		}
 
 		if (step === stepCopy.length - 1) {
+			setAnswers((current) => ({ ...current, genres: selectedGenres }))
 			setIsComplete(true)
 			return
 		}
@@ -85,10 +103,6 @@ const FormPage = ({ onBackToWelcome }: FormPageProps) => {
 	return (
 		<main className="form-page">
 			<header className="form-header">
-				<div className="status-bar" aria-hidden="true">
-					<span>9:41</span>
-					<span className="status-icons"><i /><i /><i /></span>
-				</div>
 				<h1>Расскажите о себе</h1>
 			</header>
 
@@ -134,6 +148,7 @@ const FormPage = ({ onBackToWelcome }: FormPageProps) => {
 						{step === 3 && (
 							<Step4Genres
 								value={answers.genres ?? []}
+								selectedInterests={answers.interests ?? []}
 								onChange={(value) => updateAnswer('genres', value)}
 							/>
 						)}

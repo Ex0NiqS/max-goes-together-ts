@@ -118,11 +118,15 @@
 
 .welcome-hint {
   position: absolute;
+  display: flex;
+
+   align-items: center;      /* вертикально */
+  justify-content: center; 
 
   width: calc(100% - 44px);
   height: 46px;
   left: 22px;
-  bottom: 13px;
+  bottom: 5px;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   line-height: 1.2;
